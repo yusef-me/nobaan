@@ -1,0 +1,96 @@
+@import "base";
+
+.R-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+
+  .R-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    border: 1px solid $color_light;
+    box-shadow: $secondary-box-shadow;
+    @include radius-all-sides();
+
+    .R-card-logo {
+      height: 5rem;
+      margin-bottom: 2rem;
+    }
+  }
+
+  .R-form-container {
+    display: flex;
+    flex-direction: column;
+
+    & > label {
+      font-size: .8rem;
+      margin-bottom: .5rem;
+    }
+
+    .R-err-text {
+      color: $color_red;
+      font-size: .7rem;
+      margin-bottom: .5rem;
+    }
+  }
+
+  .R-verification-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .R-verification-editPhone-btn {
+      margin-top: 1rem;
+      font-size: .7rem;
+      text-decoration: underline;
+      cursor: pointer;
+      color: $color_skyblue;
+    }
+
+    .R-verification-container-label {
+      margin-bottom: .5rem;
+      font-size: .8rem;
+    }
+
+    .R-verification-OTP {
+      margin-bottom: 1rem;
+
+      .R-OTP-field {
+        width: 2rem;
+        margin-right: .5rem;
+        text-align: center;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+
+      .timer-value {
+        font-size: 10rem;
+        font-family: 'IRANSans', serif;
+      }
+    }
+
+    .R-verification-OTP-button-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      margin-top: .5rem;
+
+      & > button {
+        width: 100%;
+        margin-right: .3rem;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}

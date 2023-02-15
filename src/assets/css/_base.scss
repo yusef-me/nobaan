@@ -1,0 +1,42 @@
+//variables
+$color_skyblue: #61DAFB;
+$color_muiblue: #1976d2;
+$color_red: #ef394e;
+$color_black: #1D292E;
+$color_gray: #707070;
+$color_light: #ebebeb;
+$color_white: #ffff;
+$primary-transition: .3s;
+$primary-box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
+$secondary-box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
+
+//mixins
+@mixin for-phone-only {
+  @media (max-width: 599px) {
+    @content;
+  }
+}
+
+@mixin for-tablet-portrait-up {
+  @media (min-width: 600px) {
+    @content;
+  }
+}
+
+@mixin for-tablet-landscape-up {
+  @media (min-width: 900px) {
+    @content;
+  }
+}
+
+@mixin radius-all-sides {
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+@mixin radius-bottom {
+  border-radius: 0 0 10px 10px;
+  -moz-border-radius: 0 0 10px 10px;
+  -webkit-border-radius: 0 0 10px 10px;
+}

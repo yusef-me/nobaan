@@ -1,0 +1,69 @@
+@import "base";
+
+.F-container {
+  padding: 0.5rem;
+  background-color: $color_light;
+
+  & h5 {
+    margin-bottom: 1rem;
+  }
+
+  .F-nav-container {
+    @include for-tablet-portrait-up {
+      display: flex;
+    }
+  }
+
+  .F-category-tags-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .F-category-tag {
+    font-size: .8em;
+    margin: .2rem;
+    color: $color_muiblue;
+    border: 1px solid $color_muiblue;
+    padding: 0 .5rem;
+    transition: $primary-transition;
+    @include radius-all-sides();
+
+    &:hover {
+      color: $color_white;
+      background-color: $color_muiblue;
+    }
+  }
+
+  .F-contactus-container > form {
+    display: flex;
+    flex-direction: column;
+
+    input, textarea, button {
+      margin: .5rem 0;
+    }
+  }
+
+  .F-about-container > small {
+    color: $color_gray;
+  }
+
+  .F-about-container, .F-category-container, .F-contactus-container {
+    margin: 1rem;
+    @include for-tablet-portrait-up {
+      width: 30%;
+    }
+  }
+
+  .F-copyright-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+
+    .F-copyright-icon {
+      font-size: 1rem;
+      margin-right: .5rem;
+      color: $color_skyblue;
+    }
+  }
+}

@@ -1,0 +1,76 @@
+@import "base";
+
+.H-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+  box-shadow: $primary-box-shadow;
+  @include radius-bottom();
+  @include for-tablet-portrait-up {
+    padding: 0.5rem 2rem;
+  }
+
+  .H-drawer-btn {
+    @include for-tablet-portrait-up {
+      display: none;
+    }
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  li {
+    margin: 0 .2rem;
+
+    &:first-child, &:first-child + li, &:first-child + li + li {
+      @include for-phone-only {
+        display: none;
+      }
+      @include for-tablet-portrait-up {
+        margin-right: 1rem;
+      }
+    }
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    color: $color_black;
+    transition: $primary-transition;
+
+    &:hover {
+      color: $color_skyblue;
+    }
+  }
+
+  .H-nav-icon {
+    margin-right: .5rem;
+  }
+}
+
+.H-logo {
+  width: 3rem;
+}
+
+.H-drawer-navbar {
+  li {
+    margin: 1rem .5rem;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    color: $color_black;
+    transition: $primary-transition;
+
+    &:hover {
+      color: $color_skyblue;
+    }
+  }
+}
