@@ -3,6 +3,7 @@ import "../assets/css/header.scss";
 import {Link} from "react-router-dom";
 import WindowIcon from '@mui/icons-material/Window';
 import PeopleRoundedIcon from '@mui/icons-material/PeopleRounded';
+import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 import MenuIcon from '@mui/icons-material/Menu';
 import ClearIcon from '@mui/icons-material/Clear';
 import CallIcon from '@mui/icons-material/Call';
@@ -16,33 +17,42 @@ const Header = () => {
         <>
             <header className="H-container">
                 <ul>
-                    <li>
+                    <li className="H-li-none">
                         <Link className="H-nav-link" to="/">
                             <WindowIcon className="H-nav-icon"/>
                             Products
                         </Link>
                     </li>
-                    <li>
+                    <li className="H-li-none">
                         <Link className="nav-link" to="/users">
                             <PeopleRoundedIcon className="H-nav-icon"/>
                             Users
                         </Link>
                     </li>
-                    <li>
-                        <Link className="nav-link" to="#">
-                            <CallIcon className="H-nav-icon"/>
-                            Contact Us
-                        </Link>
-                    </li>
+                    {
+                        localStorage.getItem('auth-token') &&
+                        <li className="H-li-none" onClick={() => {
+                            localStorage.clear()
+                            window.location.reload(false)
+                        }}>
+                            <Link to="#">
+                                <LogoutRoundedIcon className="H-nav-icon"/>
+                                Log out
+                            </Link>
+                        </li>
+                    }
                     <li className="H-drawer-btn">
                         <Button onClick={() => setOpenDrawer(true)}>
                             {openDrawer ? <ClearIcon/> : <MenuIcon/>}
                         </Button>
                     </li>
-                    <li>
-                        <Button style={{color: '#1976d2'}} href="/register" size="small" variant="outlined">Login /
-                            Signup</Button>
-                    </li>
+                    {
+                        !localStorage.getItem('auth-token') &&
+                        <li>
+                            <Button style={{color: '#1976d2'}} href="/register" size="small" variant="outlined">Login /
+                                Signup</Button>
+                        </li>
+                    }
                 </ul>
                 <Link to="/">
                     <img className="H-logo" src="logo192.png" alt="react logo"/>
@@ -61,23 +71,29 @@ const Header = () => {
                 >
                     <ul className="H-drawer-navbar">
                         <li>
-                            <a className="H-nav-link" href="#">
-                                <WindowIcon className="H-nav-icon"/>
+                            <Link to="/">
+                                <WindowIcon/>
                                 Products
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a className="nav-link" href="#">
-                                <PeopleRoundedIcon className="H-nav-icon"/>
+                            <Link to="/users">
+                                <PeopleRoundedIcon/>
                                 Users
-                            </a>
+                            </Link>
                         </li>
-                        <li>
-                            <a className="nav-link" href="#">
-                                <CallIcon className="H-nav-icon"/>
-                                Contact Us
-                            </a>
-                        </li>
+                        {
+                            localStorage.getItem('auth-token') &&
+                            <li onClick={() => {
+                                localStorage.clear()
+                                window.location.reload(false)
+                            }}>
+                                <Link to="#">
+                                    <LogoutRoundedIcon/>
+                                    Log out
+                                </Link>
+                            </li>
+                        }
                     </ul>
                 </Box>
             </Drawer>

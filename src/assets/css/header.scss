@@ -26,15 +26,15 @@
   }
 
   li {
-    margin: 0 .2rem;
+    margin: 0 .3rem;
+  }
 
-    &:first-child, &:first-child + li, &:first-child + li + li {
-      @include for-phone-only {
-        display: none;
-      }
-      @include for-tablet-portrait-up {
-        margin-right: 1rem;
-      }
+  .H-li-none {
+    @include for-phone-only {
+      display: none;
+    }
+    @include for-tablet-portrait-up {
+      margin-right: 1rem;
     }
   }
 
@@ -50,7 +50,7 @@
   }
 
   .H-nav-icon {
-    margin-right: .5rem;
+    margin-right: .3rem;
   }
 }
 
@@ -60,17 +60,20 @@
 
 .H-drawer-navbar {
   li {
-    margin: 1rem .5rem;
+    margin: 1.5rem .5rem;
   }
 
   a {
     display: flex;
-    align-items: center;
     color: $color_black;
     transition: $primary-transition;
 
     &:hover {
       color: $color_skyblue;
+    }
+
+    & > svg {
+      margin-right: .3rem;
     }
   }
 }

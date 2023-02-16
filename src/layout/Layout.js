@@ -13,7 +13,7 @@ const Layout = () => {
         errText: null,
         validation: null,
         phoneNum: null,
-        GoToVerification: false
+        GoToVerification: false,
     })
 
     return (

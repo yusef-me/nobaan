@@ -4,11 +4,10 @@ import {CountdownCircleTimer} from "react-countdown-circle-timer";
 import {GlobalContext} from "../store/Context";
 import {Button, CircularProgress, IconButton} from "@mui/material";
 import AutorenewIcon from '@mui/icons-material/Autorenew';
-import OtpInput from "react-otp-input";
 import {useHistory} from "react-router-dom";
 
 const Register = () => {
-    const {isValidation, setIsValidation} = useContext(GlobalContext)
+    const {isValidation} = useContext(GlobalContext)
     return (
         <div className="R-container">
             <div className="R-card">
@@ -83,6 +82,7 @@ const Verification = () => {
         return <div className="timer-value">{remainingTime}</div>
     };
     const onSubmit = () => {
+        localStorage.setItem('auth-token', `${Math.floor((Math.random() * 9000) + 1000)}`)
         history.goBack();
     }
 
