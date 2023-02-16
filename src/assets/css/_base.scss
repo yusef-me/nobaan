@@ -1,6 +1,7 @@
 //variables
 $color_skyblue: #61DAFB;
 $color_muiblue: #1976d2;
+$color_green: #11e95b;
 $color_red: #ef394e;
 $color_black: #1D292E;
 $color_gray: #707070;
@@ -29,10 +30,16 @@ $secondary-box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
   }
 }
 
-@mixin radius-all-sides {
+@mixin radius-all-sides-primary {
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
+}
+
+@mixin radius-all-sides-secondary {
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
 }
 
 @mixin radius-bottom {

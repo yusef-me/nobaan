@@ -1,0 +1,28 @@
+{
+  "Data": [
+    {
+      "id": 1,
+      "img": "nike.svg",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+      "subTitle": "Lorem ipsum dolor sit amet.",
+      "price": "45,659",
+      "rating": 2
+    },
+    {
+      "id": 2,
+      "img": "adidas.svg",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+      "subTitle": "Lorem ipsum dolor sit amet.",
+      "price": "46,659",
+      "rating": 4
+    },
+    {
+      "id": 3,
+      "img": "puma.svg",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+      "subTitle": "Lorem ipsum dolor sit amet.",
+      "price": "47,659",
+      "rating": 3
+    }
+  ]
+}

@@ -14,7 +14,7 @@
     padding: 2rem;
     border: 1px solid $color_light;
     box-shadow: $secondary-box-shadow;
-    @include radius-all-sides();
+    @include radius-all-sides-primary();
 
     .R-card-logo {
       height: 5rem;
