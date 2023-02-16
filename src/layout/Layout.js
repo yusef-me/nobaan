@@ -15,12 +15,13 @@ const Layout = () => {
         validation: null,
         phoneNum: null,
         GoToVerification: false,
-    })
+    });
+    const [textFieldData, setTextFieldData] = useState(null);
 
     return (
         <>
             <GlobalContext.Provider
-                value={{isValidation, setIsValidation}}>
+                value={{isValidation, setIsValidation, textFieldData, setTextFieldData}}>
                 <BrowserRouter>
                     <DisplayDialog/>
                     {window.location.pathname !== '/register' && <Header/>}
