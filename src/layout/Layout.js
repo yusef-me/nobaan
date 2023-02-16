@@ -7,6 +7,7 @@ import Users from "../pages/Users";
 import Register from "../pages/Register";
 import {GlobalContext} from "../store/Context";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
+import DisplayDialog from "./DisplayDialog";
 
 const Layout = () => {
     const [isValidation, setIsValidation] = useState({
@@ -21,6 +22,7 @@ const Layout = () => {
             <GlobalContext.Provider
                 value={{isValidation, setIsValidation}}>
                 <BrowserRouter>
+                    <DisplayDialog/>
                     {window.location.pathname !== '/register' && <Header/>}
                     <Switch>
                         <Route exact path={`/`} component={Products}/>
