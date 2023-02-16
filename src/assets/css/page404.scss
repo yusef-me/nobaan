@@ -1,0 +1,29 @@
+@import "base";
+
+.Err-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  //height: 50vh;
+  margin: 5rem;
+
+  .Err-image {
+    width: 15rem;
+    margin-bottom: 5rem;
+    @include for-tablet-portrait-up {
+      width: 20rem;
+    }
+  }
+
+  .Err-link {
+    color: $color_muiblue;
+    font-size: 1rem !important;
+    text-decoration: underline;
+    transition: $primary-transition;
+
+    &:hover {
+      color: $color_skyblue;
+    }
+  }
+}
