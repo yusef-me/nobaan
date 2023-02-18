@@ -4,8 +4,9 @@ import Header from "./Header";
 import Footer from "./Footer";
 import {GlobalContext} from "../store/Context";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
-import DisplayDialog from "./DisplayDialog";
+import DisplayDialog from "../utils/DisplayDialog";
 import {CircularProgress} from "@mui/material";
+import NetworkConnection from "../utils/NetworkConnection";
 
 const Products = lazy(() => import('../pages/Products'));
 const Users = lazy(() => import('../pages/Users'));
@@ -20,12 +21,14 @@ const Layout = () => {
         GoToVerification: false,
     });
     const [textFieldData, setTextFieldData] = useState(null);
+    const [isOnline, setNetwork] = useState(window.navigator.onLine);
 
     return (
         <>
             <GlobalContext.Provider
-                value={{isValidation, setIsValidation, textFieldData, setTextFieldData}}>
+                value={{isValidation, setIsValidation, textFieldData, setTextFieldData, isOnline, setNetwork}}>
                 <DisplayDialog/>
+                <NetworkConnection/>
                 <BrowserRouter>
                     {window.location.pathname !== '/register' && <Header/>}
                     <Suspense fallback={

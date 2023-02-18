@@ -29,7 +29,10 @@ const DisplayDialog = () => {
     }
     const handleCloseDialog = () => {
         setOpenModal(false)
-        setTextFieldData(null)
+        if (textFieldData) {
+            setTextFieldData(null)
+            localStorage.setItem("textFieldData", textFieldData)
+        }
     };
     const onInputChange = (e) => {
         setTextFieldData(e.value)
@@ -53,7 +56,15 @@ const DisplayDialog = () => {
                 />
                 {
                     textFieldData &&
-                    <span style={{color: '#1D292E'}}><b>your text read from Context :</b>{textFieldData}</span>
+                    <small style={{color: '#1D292E', display: 'block'}}><b>your text read from Context :</b>
+                        {textFieldData}
+                    </small>
+                }
+                {
+                    localStorage.getItem('textFieldData') &&
+                    <small style={{color: '#1D292E'}}><b>your previous text :</b>
+                        {localStorage.getItem('textFieldData')}
+                    </small>
                 }
             </DialogContent>
             <DialogActions>

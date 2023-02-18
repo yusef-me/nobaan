@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import "../assets/css/header.scss";
 import {Link} from "react-router-dom";
 import WindowIcon from '@mui/icons-material/Window';
@@ -6,11 +6,11 @@ import PeopleRoundedIcon from '@mui/icons-material/PeopleRounded';
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 import MenuIcon from '@mui/icons-material/Menu';
 import ClearIcon from '@mui/icons-material/Clear';
-import CallIcon from '@mui/icons-material/Call';
 import {Box, Button, Drawer} from "@mui/material";
+import {GlobalContext} from "../store/Context";
 
 const Header = () => {
-
+    const {isOnline} = useContext(GlobalContext);
     const [openDrawer, setOpenDrawer] = useState(false);
 
     return (
@@ -55,6 +55,9 @@ const Header = () => {
                     }
                 </ul>
                 <Link to="/">
+                    <span
+                        title={`you are in ${isOnline ? 'online mode' : 'offline mode our some issue with connection'}`}
+                        className="H-connection-mode">{isOnline ? 'online mode' : 'offline mode'}</span>
                     <img className="H-logo" src="nobaan logo.png" alt="react logo"/>
                 </Link>
             </header>
