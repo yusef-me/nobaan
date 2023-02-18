@@ -2,7 +2,7 @@ import React from 'react';
 
 const Users = () => {
     return (
-        <div>
+        <div style={{height: '50vh', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
             Users
         </div>
     );
