@@ -55,7 +55,7 @@ const Header = () => {
                     }
                 </ul>
                 <Link to="/">
-                    <img className="H-logo" src="logo192.png" alt="react logo"/>
+                    <img className="H-logo" src="nobaan logo.png" alt="react logo"/>
                 </Link>
             </header>
             <Drawer

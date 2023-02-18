@@ -12,7 +12,7 @@ const Register = () => {
         <div className="R-container">
             <div className="R-card">
                 <a href="/">
-                    <img className="R-card-logo" src="logo192.png" alt="react logo"/>
+                    <img className="R-card-logo" src="nobaan logo.png" alt="react logo"/>
                 </a>
                 {isValidation.GoToVerification ? <Verification/> : <GetPhoneNumber/>}
             </div>

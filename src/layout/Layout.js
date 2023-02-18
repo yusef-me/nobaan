@@ -25,8 +25,8 @@ const Layout = () => {
         <>
             <GlobalContext.Provider
                 value={{isValidation, setIsValidation, textFieldData, setTextFieldData}}>
+                <DisplayDialog/>
                 <BrowserRouter>
-                    <DisplayDialog/>
                     {window.location.pathname !== '/register' && <Header/>}
                     <Suspense fallback={
                         <div className="Sus-Progress-container">
