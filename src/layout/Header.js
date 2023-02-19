@@ -49,8 +49,8 @@ const Header = () => {
                     {
                         !localStorage.getItem('auth-token') &&
                         <li>
-                            <Button style={{color: '#1976d2'}} href="/register" size="small" variant="outlined">Login /
-                                Signup</Button>
+                            <Button style={{color: '#1976d2'}} href="/register" size="small" variant="outlined">
+                                Login / Signup</Button>
                         </li>
                     }
                 </ul>
