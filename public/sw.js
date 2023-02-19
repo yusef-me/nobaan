@@ -1,4 +1,5 @@
-const CACHE_NAME = "cache-v1";
+const STATIC_CACHE_VERSION = "static-v1";
+const DYNAMIC_CACHE_VERSION = "dynamic-v1";
 const STATIC_ASSETS = [
     '/static/js/main.chunk.js',
     '/static/js/0.chunk.js',
@@ -23,12 +24,13 @@ const STATIC_ASSETS = [
     '/static/css/main.ba6a9162.css',
     '/static/css/450.d1ac086e.chunk.css',
     '/static/js/450.91530b38.chunk.js',
+    '/static/js/src_pages_Users_js.chunk.js'
 ];
 
 // setting the files in cache
 self.addEventListener("install", event => {
     event.waitUntil(
-        caches.open(CACHE_NAME)
+        caches.open(STATIC_CACHE_VERSION)
             .then(cache => {
                 return cache.addAll(STATIC_ASSETS)
             })
@@ -38,11 +40,20 @@ self.addEventListener("install", event => {
 
 // fetch from catch
 self.addEventListener("fetch", event => {
-    if (!navigator.onLine) {
-        event.respondWith(event.request).then(res => {
-            if (res) {
-                return res
-            }
-        })
-    }
+    const request = event.request
+    event.respondWith(
+        caches.match(request)
+            .then(response => {
+                return response || fetch(request)
+                    .then(res => {
+                        caches.open(DYNAMIC_CACHE_VERSION)
+                            .then(cache => {
+                                cache.put(request, res)
+                            })
+                        return res.clone()
+                    })
+                    .catch(console.error)
+            })
+            .catch(console.error)
+    )
 })
